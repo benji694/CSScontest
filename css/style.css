@@ -3,13 +3,16 @@
     src: url("//db.onlinewebfonts.com/t/3724ece79a634e7b5168905d01e59a64.eot"); 
     src: url("//db.onlinewebfonts.com/t/3724ece79a634e7b5168905d01e59a64.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3724ece79a634e7b5168905d01e59a64.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3724ece79a634e7b5168905d01e59a64.woff") format("woff"), url("//db.onlinewebfonts.com/t/3724ece79a634e7b5168905d01e59a64.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3724ece79a634e7b5168905d01e59a64.svg#Maison Neue Book") format("svg"); 
 }
+html{
+    scroll-behavior: smooth;
+}
 *{
     font-size: 62.5%;
     box-sizing: border-box;
 }
 body{
     font-family: "Maison Neue Book";
-    overflow: hidden;
+    margin: 0;
 }
 header{
     position: fixed;
@@ -20,15 +23,29 @@ header{
     display: flex;
     align-items: center;
     z-index: 99;
-    transition: ease 1s;
+    transition: all 1s;
+}
+.headerUnscrolled{
     border-bottom: solid 1px gray;
 }
-header:hover{
+.headerScrolled{
+    border-bottom: none;
+    background: #3f2b56 url('https://toulousefc.com/themes/custom/tfc_theme/images/Croix_occitane.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.headerUnscrolled:hover{
     background-color: #402b56;
 }
 #logo img{
-    width: 7.5rem;
     margin-right: 16em;
+    transition: all 1s;
+}
+.headerUnscrolled #logo img{
+    width: 7.5rem;
+}
+.headerScrolled #logo img{
+    width: 5rem;
 }
 
 #burger{
@@ -87,28 +104,58 @@ header nav div{
     border-radius: 50%;
 }
 
-
+#accueil{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 98.9vw;
+    height: 100vh;
+    overflow: hidden;
+}
 #home{
-    background: url('https://toulousefc.com/sites/default/files/2022-04/Pano_0.jpg') no-repeat;
+    background: url('https://toulousefc.com/sites/default/files/2022-05/Pano%20remise%20trophe%CC%81e.jpg') no-repeat;
     background-size: cover;
     background-position: center;
     position: absolute;
     animation: zoomOut 10s ease-in-out forwards;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 #filter{
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
     background-color: #3e2b56;
     opacity: 0.25;
 }
+#title{
+    position: absolute;
+    left: 0;
+    bottom: 40%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#title div{
+    width: 19%;
+    height: 2px;
+    background-color: white;
+}
+#title h1{
+    color: white;
+    font-size: 14em;
+    text-transform: uppercase;
+    width: 75%;
+    font-weight: 900;
+}
 
+
+main{
+    height: 1000px;
+    background-color: blue;
+}
 @keyframes zoomOut {
     0% {
         transform: scale(1.3);
