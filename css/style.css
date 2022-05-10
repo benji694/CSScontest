@@ -150,11 +150,50 @@ header nav div{
     width: 75%;
     font-weight: 900;
 }
-
-
+#scrollBtn{
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    width: 24px;
+    height: 75px;
+    cursor: pointer;
+}
+.chevron{
+    position: absolute;
+    width: 28px;
+    height: 6px;
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+    animation: move 3s ease-out infinite;
+}
+#scrollBtn .chevron:nth-child(1){
+    animation: move 3s ease-out 1s infinite;
+}
+#scrollBtn .chevron:nth-child(2){
+    animation: move 3s ease-out 2s infinite;
+}
+.chevron::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 51%;
+    background-color: white;
+    transform: skew(0deg, 30deg);
+}
+.chevron::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 51%;
+    background-color: white;
+    transform: skew(0deg, -30deg);
+}
 main{
     height: 1000px;
-    background-color: blue;
 }
 @keyframes zoomOut {
     0% {
@@ -162,5 +201,22 @@ main{
     }
     100% {
         transform: scale(1);
+    }
+}
+@keyframes move {
+    25% {
+        opacity: 1;
+    }
+    33% {
+        opacity: 1;
+        transform: translateY(30px);
+    }
+    67% {
+        opacity: 1;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
     }
 }
